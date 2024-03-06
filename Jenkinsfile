@@ -17,11 +17,26 @@ node {
     println SFDC_HOST
     println CONNECTED_APP_CONSUMER_KEY
     def toolbelt = tool 'toolbelt'
-
+//-----------------------------------------------------------------------------------------
+//Check Out code from Control.
+//-----------------------------------------------------------------------------------------
+    stage('Build') {
+        // when running in multi-branch job, one must issue this command
+        checkout scm
+    }
     stage('checkout source') {
         // when running in multi-branch job, one must issue this command
         checkout scm
     }
+    stage('Get Testing') {
+        // when running in multi-branch job, one must issue this command
+        checkout scm
+    }
+     // -------------------------------------------------------------------------
+    // Run all the enclosed stages with access to the Salesforce
+    // JWT key credentials.
+    // -------------------------------------------------------------------------
+    
 
     withCredentials([file(credentialsId: JWT_KEY_CRED_ID, variable: 'jwt_key_file')]) {
         stage('Deploye Code') {
