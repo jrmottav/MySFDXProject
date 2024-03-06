@@ -20,15 +20,7 @@ node {
 //-----------------------------------------------------------------------------------------
 //Check Out code from Control.
 //-----------------------------------------------------------------------------------------
-    stage('Build') {
-        // when running in multi-branch job, one must issue this command
-        checkout scm
-    }
     stage('checkout source') {
-        // when running in multi-branch job, one must issue this command
-        checkout scm
-    }
-    stage('Get Testing') {
         // when running in multi-branch job, one must issue this command
         checkout scm
     }
